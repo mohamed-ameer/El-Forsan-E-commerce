@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+*,*::after,*::before{
+    margin: 0px;padding: 0px;
+    box-sizing: border-box;
+}
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Cairo';
+}
+main{
+    background-color: #f9f9f9;
+}
+.whatsapp-fixed-icon{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: #fff;
+    background-color: #4DA047;
+    box-shadow: -2px -2px 12px -4px rgba(0,0,0,0.75);
+    transition: 0.5s;
+}
+.whatsapp-fixed-icon:hover{
+    box-shadow: -2px -2px 16px 2px rgba(0,0,0,0.75);
+}
+.whatsapp-fixed-icon a{
+    color: #fff;
+    text-decoration: none;
+}
+.whatsapp-fixed-icon a:hover{
+    color: #fff;
+}
+.rating span{
+    margin: 0.1rem;
+}
+a{
+    text-decoration: none;
+    color:#111;
+}

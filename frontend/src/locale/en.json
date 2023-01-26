@@ -1,0 +1,18 @@
+{
+    "html_title":"EL FORSAN Online Store",
+    "dir":"ltr",
+    "header" : {
+        
+    },
+    "footer" : {
+        "about_us":{
+            "title":"About Us",
+            "content":"Specialized in providing the finest types of pickles and interested in our customers with all love and thanks to God, then thanks to you we started with you since 2015 , and we developed and progressed day by day with success, and thank you for your support and trust in our products."
+        },
+        "contact_us":{
+            "title":"Contact Us",
+            "content":"Egypt,sharkia,zagazig"
+        },
+        "payment_method":"Payment Method"
+    }
+}
