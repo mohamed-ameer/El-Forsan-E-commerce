@@ -56,7 +56,10 @@ function ProductScreen() {
                       <strong>{i18n.language == 'ar'?'المكونات :':'Ingredient'}</strong> {i18n.language == 'ar'?product.description_ar:product.description}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                      <strong>{i18n.language == 'ar'?'الوزن :':'Weight :'}</strong> 50 kg
+                      <strong>{i18n.language == 'ar'?'الوزن :':'Weight :'}</strong> {product.weight} {i18n.language == 'ar'?'كجم':'kg'}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                      <strong>{i18n.language == 'ar'?'الوزن الصافي :':'Package Weight :'}</strong> {product.package_weight} {i18n.language == 'ar'?'جم':'g'}
                   </ListGroup.Item>
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
