@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate,useParams} from 'react-router-dom'
 import { useTranslation } from "react-i18next";
 import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap'
 import Rating from '../components/Rating/Rating'
@@ -7,9 +7,11 @@ import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
 import { useDispatch,useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/productActions'
-import { useParams } from 'react-router-dom';
+
 
 function ProductScreen() {
+  const [qty, setQty] = useState(1)
+  const navigate = useNavigate();
   const { id } = useParams()
   const [t,i18n]=useTranslation();
   const dispatch = useDispatch();
@@ -18,6 +20,10 @@ function ProductScreen() {
   useEffect(()=>{
     dispatch(listProductDetails(id))
   },[dispatch,id])
+
+  const addToCartHandler = () => {
+    navigate(`/cart/${id}?qty=${qty}`)
+    }
   return (
     <>
         { loading ?
@@ -73,9 +79,11 @@ function ProductScreen() {
                                 <ListGroup.Item>
                                     <Row className='align-items-center'>
                                         <Col><strong>{i18n.language == 'ar'?'الكميه :':'Quantity:'}</strong></Col>
-                                        <Col xs='auto' className='my-1'>
+                                        <Col className='my-1'>
                                             <Form.Control
                                                 as="select"
+                                                value={qty}
+                                                onChange={(e) => setQty(e.target.value)}
                                             >
                                                 {
 
@@ -93,6 +101,7 @@ function ProductScreen() {
                             )}
                                 <ListGroup.Item>
                                     <Button
+                                        onClick={addToCartHandler}
                                         className='btn btn-dark btn-lg w-100'
                                         disabled={product.countInStock == 0}
                                         type='button'>

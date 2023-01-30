@@ -1,9 +1,12 @@
 import React from 'react'
 import { useTranslation } from "react-i18next";
+import { useSelector } from 'react-redux'
 import './Header.css'
 import { Link } from 'react-router-dom'
 function Header() {
   const [t,i18n]=useTranslation();
+  const cart = useSelector(state => state.cart)
+
   return (
     <header>
       <div className='header-info'>
@@ -69,10 +72,10 @@ function Header() {
               <button><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div className='header-nav-icons' style={i18n.language == 'ar'?{flexDirection:'row-reverse'}:{flexDirection:'row'}}>
-              <a className='header-nav-icons-cart'>
+              <Link to="/cart" className='header-nav-icons-cart'>
                 <i className="fa-solid fa-cart-shopping"></i>
-                <span>10</span>
-              </a>
+                <span>{cart.cartItems.length}</span>
+              </Link>
               <a className='header-nav-icons-user'>
                 <i className="fa-solid fa-user"></i>
                 <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px'}:{right: '0px'}}>

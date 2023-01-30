@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 // screes
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
 
 // translate ar and en 
 import { useTranslation } from "react-i18next";
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomeScreen/>} exact />
             <Route path='/product/:id' element={<ProductScreen/>} />
+            <Route path='/cart/:id?' element={<CartScreen/>} />
           </Routes>
         </Container>
       </main>
