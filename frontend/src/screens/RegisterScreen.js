@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,useNavigate,useSearchParams } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader/Loader'
@@ -7,7 +7,7 @@ import Message from '../components/Message/Message'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
 
-function RegisterScreen({ location, history }) {
+function RegisterScreen() {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -16,16 +16,22 @@ function RegisterScreen({ location, history }) {
     const [message, setMessage] = useState('')
 
     const dispatch = useDispatch()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const [searchParams] = useSearchParams();
+    const redirect = searchParams.get('redirect');
 
     const userRegister = useSelector(state => state.userRegister)
     const { error, loading, userInfo } = userRegister
 
     useEffect(() => {
         if (userInfo) {
-            navigate('/')
+            if(redirect){
+                navigate('/'+redirect)
+            }else{
+                navigate('/')
+            }
         }
-    }, [history, userInfo])
+    }, [navigate, userInfo,redirect])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -103,7 +109,7 @@ function RegisterScreen({ location, history }) {
             <Row className='py-3'>
                 <Col>
                     Have an Account? <Link
-                        to='/login'>
+                        to={redirect ? `/login?redirect=${redirect}` : '/login'}>
                         Sign In
                         </Link>
                 </Col>

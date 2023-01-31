@@ -11,15 +11,21 @@ function LoginScreen() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const redirect = searchParams.get('redirect');
 
     const userLogin = useSelector(state => state.userLogin)
     const { error, loading, userInfo } = userLogin
 
     useEffect(() => {
         if (userInfo) {
-            navigate('/')
+            if(redirect){
+                navigate('/'+redirect)
+            }else{
+                navigate('/')
+            }
         }
     }, [navigate, userInfo])
 
@@ -66,7 +72,7 @@ function LoginScreen() {
             <Row className='py-3'>
                 <Col>
                     New Customer? <Link
-                        to='/register'>
+                        to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                         Register
                         </Link>
                 </Col>
