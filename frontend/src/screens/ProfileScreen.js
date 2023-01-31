@@ -64,6 +64,8 @@ function ProfileScreen() {
 
     }
     return (
+        <>
+    {userInfo &&
         <Row className='gy-4' style={i18n.language == 'ar'?{flexDirection:'row-reverse'}:{flexDirection:'row'}}>
             <nav aria-label="breadcrumb" className="mb-4">
             <ol className="breadcrumb" style={{direction:'ltr',backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
@@ -139,6 +141,8 @@ function ProfileScreen() {
             <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}><h2>{i18n.language == 'ar'?'طلباتي':'My Orders'}</h2></div>
             </Col>
         </Row>
+    }
+    </>
     )
 }
 
