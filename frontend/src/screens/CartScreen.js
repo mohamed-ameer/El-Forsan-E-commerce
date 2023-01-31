@@ -15,7 +15,7 @@ function CartScreen() {
 
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
-
+    const currentItem = cartItems.find(x => x.product == id)
     useEffect(() => {
         if (id) {
             dispatch(addToCart(id, qty))
@@ -34,6 +34,11 @@ function CartScreen() {
         <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb" style={{direction:'ltr',backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
             <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+                {currentItem && 
+                <li className="breadcrumb-item active " aria-current="page">
+                <Link to={`/product/${currentItem.product}`}>{i18n.language == 'ar' && currentItem?currentItem.name_ar:currentItem.name}</Link>
+                </li>
+                }    
             <li className="breadcrumb-item active " aria-current="page">{i18n.language == 'ar'?'العربه':'cart'}</li>
         </ol>
         </nav>    

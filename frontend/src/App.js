@@ -7,6 +7,9 @@ import Header from './components/Header/Header';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 // translate ar and en 
 import { useTranslation } from "react-i18next";
@@ -27,6 +30,9 @@ function App() {
             <Route path='/' element={<HomeScreen/>} exact />
             <Route path='/product/:id' element={<ProductScreen/>} />
             <Route path='/cart/:id?' element={<CartScreen/>} />
+            <Route path='/login' element={<LoginScreen/>} />
+            <Route path='/register' element={<RegisterScreen/>} />
+            <Route path='/profile' element={<ProfileScreen/>} />
           </Routes>
         </Container>
       </main>

@@ -1,11 +1,19 @@
 import React from 'react'
 import { useTranslation } from "react-i18next";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { logout } from '../../actions/userActions'
 function Header() {
   const [t,i18n]=useTranslation();
   const cart = useSelector(state => state.cart)
+  
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
+  const dispatch = useDispatch()
+  const logoutHandler = () => {
+      dispatch(logout())
+  }
 
   return (
     <header>
@@ -76,17 +84,38 @@ function Header() {
                 <i className="fa-solid fa-cart-shopping"></i>
                 <span>{cart.cartItems.length}</span>
               </Link>
-              <a className='header-nav-icons-user'>
+              <Link className='header-nav-icons-user'>
                 <i className="fa-solid fa-user"></i>
-                <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px'}:{right: '0px'}}>
+                <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px',direction:'rtl'}:{right: '0px',direction:'ltr'}}>
+                {i18n.language == 'ar'?
                   <ul>
-                    <li><Link to="/login">login</Link></li>
-                    <li><a>login</a></li>
-                    <li><a>login</a></li>
-                    <li><a>login</a></li>
+                    {userInfo ?
+                    <> 
+                    <li><Link to="/profile"><span><i className="fa-regular fa-user"></i></span> الصفحه الشخصيه</Link></li>
+                    <li><Link>in</Link></li>
+                    <li><Link onClick={logoutHandler}><span><i className="fa-solid fa-arrow-right-from-bracket"></i></span> خروج</Link></li>                    
+                    </>:
+                    <>                   
+                    <li><Link to="/login"><span><i className="fa-regular fa-user"></i></span> تسجيل الدخول</Link></li>
+                    <li><Link to="/register"><span><i className="fa-regular fa-user"></i></span> إنشاء حساب</Link></li>
+                    </>}
                   </ul>
+                  :
+                  <ul>
+                    {userInfo ?
+                    <>
+                    <li><Link to="/profile"><span><i className="fa-regular fa-user"></i></span> Profile</Link></li>
+                    <li><Link>login</Link></li>
+                    <li><Link onClick={logoutHandler}><span><i className="fa-solid fa-arrow-right-from-bracket"></i></span> logOut</Link></li>                    
+                    </>:
+                    <>
+                    <li><Link to="/login"><span><i className="fa-regular fa-user"></i></span> login</Link></li>
+                    <li><Link to="/register"><span><i className="fa-regular fa-user"></i></span> sign up</Link></li>
+                    </>}
+                  </ul>
+                  }
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
