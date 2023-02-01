@@ -119,7 +119,7 @@ function CartScreen() {
                     disabled={cartItems.length === 0}
                     onClick={checkoutHandler}
                 >
-                    {i18n.language == 'ar' ? 'إتمام الطلب' : 'Proceed To Checkout' }
+                    {i18n.language == 'ar' ? 'تقديم عمليه الشراء' : 'Proceed To Checkout' }
                 </Button>
             </ListGroup.Item>
 

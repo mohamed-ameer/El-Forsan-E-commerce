@@ -92,7 +92,7 @@ function Header() {
                     {userInfo ?
                     <> 
                     <li><Link to="/profile"><span><i className="fa-regular fa-user"></i></span> الصفحه الشخصيه</Link></li>
-                    <li><Link>in</Link></li>
+                    <li><Link to="/cart"><span><i className="fa-solid fa-cart-shopping"></i></span> عربه التسوق</Link></li>
                     <li><Link onClick={logoutHandler}><span><i className="fa-solid fa-arrow-right-from-bracket"></i></span> خروج</Link></li>                    
                     </>:
                     <>                   
@@ -105,7 +105,7 @@ function Header() {
                     {userInfo ?
                     <>
                     <li><Link to="/profile"><span><i className="fa-regular fa-user"></i></span> Profile</Link></li>
-                    <li><Link>login</Link></li>
+                    <li><Link to="/cart"><span><i className="fa-solid fa-cart-shopping"></i></span> Shopping Cart</Link></li>
                     <li><Link onClick={logoutHandler}><span><i className="fa-solid fa-arrow-right-from-bracket"></i></span> logOut</Link></li>                    
                     </>:
                     <>
