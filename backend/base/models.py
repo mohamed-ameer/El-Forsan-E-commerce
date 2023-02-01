@@ -62,9 +62,10 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
+    name_ar = models.CharField(max_length=200, null=True, blank=True)
     qty = models.IntegerField(null=True, blank=True, default=0)
-    price = models.DecimalField(
-        max_digits=7, decimal_places=2, null=True, blank=True)
+    price = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
+    price_ar = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
     image = models.CharField(max_length=200, null=True, blank=True)
     _id = models.AutoField(primary_key=True, editable=False)
 
@@ -79,6 +80,8 @@ class ShippingAddress(models.Model):
     city = models.CharField(max_length=200, null=True, blank=True)
     postalCode = models.CharField(max_length=200, null=True, blank=True)
     country = models.CharField(max_length=200, null=True, blank=True)
+    email = models.CharField(max_length=200, null=True, blank=True)
+    phone = models.CharField(max_length=200, null=True, blank=True)
     shippingPrice = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
     _id = models.AutoField(primary_key=True, editable=False)

@@ -9,7 +9,7 @@ import { createOrder } from '../actions/orderActions'
 import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 
 function PlaceOrderScreen({ history }) {
-
+    const [t,i18n]=useTranslation();
     const orderCreate = useSelector(state => state.orderCreate)
     const { order, error, success } = orderCreate
 
@@ -56,49 +56,65 @@ function PlaceOrderScreen({ history }) {
     return (
         <div>
             <CheckoutSteps step1 step2 step3 step4 />
-            <Row>
+            <Row style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <Col md={8}>
-                    <ListGroup variant='flush'>
+                    <ListGroup >
                         <ListGroup.Item>
-                            <h2>Shipping</h2>
+                            <h2>{i18n.language == 'ar'?'بيانات الشحن':'Shipping'}</h2>
 
-                            <p>
-                                <strong>Shipping: </strong>
-                                {cart.shippingAddress.address},  {cart.shippingAddress.city}
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col><strong>{i18n.language == 'ar'?'عنوان التسليم : ':'address :'}</strong></Col>
+                                    <Col> {cart.shippingAddress.address},  {cart.shippingAddress.city}
                                 {'  '}
                                 {cart.shippingAddress.postalCode},
                                 {'  '}
-                                {cart.shippingAddress.country}
-                            </p>
+                                {cart.shippingAddress.country}</Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col><strong>{i18n.language == 'ar'?'الايميل : ':'email :'}</strong></Col>
+                                    <Col>{cart.shippingAddress.email}</Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col><strong>{i18n.language == 'ar'?'رقم الهاتف : ':'Phone no :'}</strong></Col>
+                                    <Col>{cart.shippingAddress.phone}</Col>
+                                </Row>
+                            </ListGroup.Item>
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Payment Method</h2>
+                            <h2>{i18n.language == 'ar'?'طريقه الدفع ':'Payment Method '}</h2>
                             <p>
-                                <strong>Method: </strong>
+                                <strong>{i18n.language == 'ar'?'عن طريق : ':'Method :'}</strong>
                                 {cart.paymentMethod}
                             </p>
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Order Items</h2>
+                            <h2>{i18n.language == 'ar'?'المنتجات المطلوبه : ':'Order Items :'}</h2>
                             {cart.cartItems.length === 0 ? <Message variant='info'>
                                 Your cart is empty
                             </Message> : (
-                                    <ListGroup variant='flush'>
+                                    <ListGroup >
                                         {cart.cartItems.map((item, index) => (
                                             <ListGroup.Item key={index}>
-                                                <Row>
-                                                    <Col md={1}>
+                                                <Row className='align-items-center'>
+                                                    <Col md={2}>
                                                         <Image src={item.image} alt={item.name} fluid rounded />
                                                     </Col>
 
-                                                    <Col>
-                                                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                                    <Col md={2}>
+                                                        <Link to={`/product/${item.product}`}>{i18n.language == 'ar'?item.name_ar:item.name}</Link>
                                                     </Col>
 
-                                                    <Col md={4}>
-                                                        {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
+                                                    <Col md={8}>
+                                                        <div>{i18n.language == 'ar'?'الكميه المطلوبه : ':'Quantity :'} {item.qty}</div>
+                                                        <div>{i18n.language == 'ar'?` سعر القطعه : ${item.price} جنيه`:`Price/item : ${item.price} EGP`}</div>
+                                                        <div>{i18n.language == 'ar'?` السعر الكلي : ${(item.qty * item.price).toFixed(2)} جنيه`:`total price : ${(item.qty * item.price).toFixed(2)} EGP`}</div>
                                                     </Col>
                                                 </Row>
                                             </ListGroup.Item>
@@ -113,36 +129,36 @@ function PlaceOrderScreen({ history }) {
 
                 <Col md={4}>
                     <Card>
-                        <ListGroup variant='flush'>
+                        <ListGroup >
                             <ListGroup.Item>
                                 <h2>Order Summary</h2>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Items:</Col>
-                                    <Col>${cart.itemsPrice}</Col>
+                                    <Col>{i18n.language == 'ar'?'تكلفه المنتجات :':'Items Price :'}</Col>
+                                    <Col>{i18n.language == 'ar'?`${cart.itemsPrice} جنيه`:`${cart.itemsPrice} EGP`}</Col>
                                 </Row>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Shipping:</Col>
-                                    <Col>${cart.shippingPrice}</Col>
+                                    <Col>{i18n.language == 'ar'?'مصاريف الشحن : ':'Shipping Price :'}</Col>
+                                    <Col>{i18n.language == 'ar'?`${cart.shippingPrice} جنيه`:`${cart.shippingPrice} EGP`}</Col>
                                 </Row>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Tax:</Col>
-                                    <Col>${cart.taxPrice}</Col>
+                                    <Col>{i18n.language == 'ar'?'الضرايب :':'Tax :'}</Col>
+                                    <Col>{i18n.language == 'ar'?`${cart.taxPrice} جنيه`:`${cart.taxPrice} EGP`}</Col>
                                 </Row>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Total:</Col>
-                                    <Col>${cart.totalPrice}</Col>
+                                    <Col>{i18n.language == 'ar'?'التكلفه الكليه :':'Total Price :'}</Col>
+                                    <Col>{i18n.language == 'ar'?`${cart.totalPrice} جنيه`:`${cart.totalPrice} EGP`}</Col>
                                 </Row>
                             </ListGroup.Item>
 
@@ -158,7 +174,7 @@ function PlaceOrderScreen({ history }) {
                                     disabled={cart.cartItems === 0}
                                     onClick={placeOrder}
                                 >
-                                    Place Order
+                                    {i18n.language == 'ar'?'ارسل الطلب':'Place Order'}
                                 </Button>
                             </ListGroup.Item>
 

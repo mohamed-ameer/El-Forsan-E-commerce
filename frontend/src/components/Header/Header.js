@@ -86,34 +86,19 @@ function Header() {
               </Link>
               <Link className='header-nav-icons-user'>
                 <i className="fa-solid fa-user"></i>
-                <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px',direction:'rtl'}:{right: '0px',direction:'ltr'}}>
-                {i18n.language == 'ar'?
-                  <ul>
+                <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px',direction:'rtl'}:{right: '0px',direction:'ltr'}}>                
                     {userInfo ?
-                    <> 
-                    <li><Link to="/profile"><span><i className="fa-regular fa-user"></i></span> الصفحه الشخصيه</Link></li>
-                    <li><Link to="/cart"><span><i className="fa-solid fa-cart-shopping"></i></span> عربه التسوق</Link></li>
-                    <li><Link onClick={logoutHandler}><span><i className="fa-solid fa-arrow-right-from-bracket"></i></span> خروج</Link></li>                    
-                    </>:
-                    <>                   
-                    <li><Link to="/login"><span><i className="fa-regular fa-user"></i></span> تسجيل الدخول</Link></li>
-                    <li><Link to="/register"><span><i className="fa-regular fa-user"></i></span> إنشاء حساب</Link></li>
-                    </>}
-                  </ul>
-                  :
-                  <ul>
-                    {userInfo ?
-                    <>
-                    <li><Link to="/profile"><span><i className="fa-regular fa-user"></i></span> Profile</Link></li>
-                    <li><Link to="/cart"><span><i className="fa-solid fa-cart-shopping"></i></span> Shopping Cart</Link></li>
-                    <li><Link onClick={logoutHandler}><span><i className="fa-solid fa-arrow-right-from-bracket"></i></span> logOut</Link></li>                    
-                    </>:
-                    <>
-                    <li><Link to="/login"><span><i className="fa-regular fa-user"></i></span> login</Link></li>
-                    <li><Link to="/register"><span><i className="fa-regular fa-user"></i></span> sign up</Link></li>
-                    </>}
-                  </ul>
-                  }
+                    <ul> 
+                      <li><Link to="/profile">{i18n.language == 'ar'?'الصفحه الشخصيه':'Profile'}</Link></li>
+                      <li><Link to="/cart">{i18n.language == 'ar'?'عربه التسوق':'Shopping Cart'}</Link></li>
+                      <li><Link onClick={logoutHandler}>{i18n.language == 'ar'?'خروج':'Logout'}</Link></li>                    
+                    </ul>
+                    :
+                    <ul>                   
+                      <li><Link to="/login">{i18n.language == 'ar'?'تسجيل الدخول':'SignIn'}</Link></li>
+                      <li><Link to="/register">{i18n.language == 'ar'?'إنشاء حساب':'SignUp'}</Link></li>
+                    </ul>
+                    }
                 </div>
               </Link>
             </div>
