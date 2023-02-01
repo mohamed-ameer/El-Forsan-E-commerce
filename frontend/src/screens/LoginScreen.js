@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from "react-i18next";
 import { Link,useNavigate,useSearchParams} from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
+import CheckoutSteps from '../components/CheckoutSteps'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
 
 function LoginScreen() {
+    const [t,i18n]=useTranslation();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -36,16 +39,19 @@ function LoginScreen() {
 
     return (
         <FormContainer>
-            <h1>SIGN IN</h1>
+            {redirect == 'shipping' && <CheckoutSteps step1 />}
+            <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+            <h1>{i18n.language == 'ar'?'تسجيل الدخول':'SIGN IN'}</h1>
+            </div>
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
 
-                <Form.Group controlId='email'>
-                    <Form.Label>Email Address</Form.Label>
+                <Form.Group controlId='email' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Form.Label>{i18n.language == 'ar'?'البريد الالكتروني':'Email Address'}</Form.Label>
                     <Form.Control
                         type='email'
-                        placeholder='Enter Email'
+                        placeholder={i18n.language == 'ar'?'ادخل البريد الالكتروني':'Enter Email'}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     >
@@ -53,11 +59,11 @@ function LoginScreen() {
                 </Form.Group>
 
 
-                <Form.Group controlId='password'>
-                    <Form.Label>Password</Form.Label>
+                <Form.Group controlId='password' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Form.Label>{i18n.language == 'ar'?'كلمه السر':'Password'}</Form.Label>
                     <Form.Control
                         type='password'
-                        placeholder='Enter Password'
+                        placeholder={i18n.language == 'ar'?'ادخل كلمه السر':'Enter Password'}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     >
@@ -65,16 +71,17 @@ function LoginScreen() {
                 </Form.Group>
 
                 <Button type='submit' variant='primary' className='w-100 mt-3'>
-                    Sign In
+                {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
                 </Button>
             </Form>
 
-            <Row className='py-3'>
+            <Row className='py-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <Col>
-                    New Customer? <Link
+                {i18n.language == 'ar'?'عميل جديد ؟':'New Customer?'} 
+                    <Link
                         to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-                        Register
-                        </Link>
+                        {i18n.language == 'ar'?'إنشاء حساب':'Register'}
+                    </Link>
                 </Col>
             </Row>
 

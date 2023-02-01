@@ -4,13 +4,15 @@ import { useTranslation } from "react-i18next";
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
-// import CheckoutSteps from '../components/CheckoutSteps'
+import CheckoutSteps from '../components/CheckoutSteps'
 import { saveShippingAddress } from '../actions/cartActions'
 
 function ShippingScreen() {
     const [t,i18n]=useTranslation();
     const cart = useSelector(state => state.cart)
     const { shippingAddress } = cart
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -23,6 +25,12 @@ function ShippingScreen() {
     const [phone, setPhone] = useState(shippingAddress.phone)
     const [email, setEmail] = useState(shippingAddress.email)
 
+    useEffect(() => {
+        if (!userInfo) {
+            navigate('/login')
+        }
+    }, [userInfo])
+
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(saveShippingAddress({ address, city, postalCode, country,phone,email }))
@@ -31,9 +39,9 @@ function ShippingScreen() {
 
     return (
         <FormContainer>
-            {/* <CheckoutSteps step1 step2 /> */}
+            <CheckoutSteps step1 step2 />
             <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-            <h1>{i18n.language == 'ar'?'الشحن':'Shipping'}</h1>
+            <h1>{i18n.language == 'ar'?'بيانات الشحن':'SHIPPING'}</h1>
             </div>
             <Form onSubmit={submitHandler}>
 

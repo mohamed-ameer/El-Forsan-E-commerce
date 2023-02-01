@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from "react-i18next";
 import { Link,useNavigate,useSearchParams } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
 import FormContainer from '../components/FormContainer'
+import CheckoutSteps from '../components/CheckoutSteps'
 import { register } from '../actions/userActions'
 
 function RegisterScreen() {
-
+    const [t,i18n]=useTranslation();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -46,54 +48,57 @@ function RegisterScreen() {
 
     return (
         <FormContainer>
-            <h1>SIGN UP</h1>
+            {redirect == 'shipping' && <CheckoutSteps step1 />}
+            <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+            <h1>{i18n.language == 'ar'?'إنشاء حساب':'SIGN UP'}</h1>
+            </div>
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
 
-                <Form.Group controlId='name'>
-                    <Form.Label>Name</Form.Label>
+                <Form.Group controlId='name' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Form.Label>{i18n.language == 'ar'?'الاسم':'Name'}</Form.Label>
                     <Form.Control
                         required
                         type='name'
-                        placeholder='Enter name'
+                        placeholder={i18n.language == 'ar'?'ادخل الاسم':'Enter name'}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     >
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='email'>
-                    <Form.Label>Email Address</Form.Label>
+                <Form.Group controlId='email' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Form.Label>{i18n.language == 'ar'?'البريد الالكتروني':'Email Address'}</Form.Label>
                     <Form.Control
                         required
                         type='email'
-                        placeholder='Enter Email'
+                        placeholder={i18n.language == 'ar'?'ادخل البريد الالكتروني':'Enter Email'}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     >
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='password'>
-                    <Form.Label>Password</Form.Label>
+                <Form.Group controlId='password' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Form.Label>{i18n.language == 'ar'?'كلمه السر':'Password'}</Form.Label>
                     <Form.Control
                         required
                         type='password'
-                        placeholder='Enter Password'
+                        placeholder={i18n.language == 'ar'?'ادخل كلمه السر':'Enter Password'}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     >
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='passwordConfirm'>
-                    <Form.Label>Confirm Password</Form.Label>
+                <Form.Group controlId='passwordConfirm' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Form.Label>{i18n.language == 'ar'?'تاكيد كلمه السر':'Confirm Password'}</Form.Label>
                     <Form.Control
                         required
                         type='password'
-                        placeholder='Confirm Password'
+                        placeholder={i18n.language == 'ar'?'تاكيد كلمه السر':'Confirm Password'}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     >
@@ -101,17 +106,18 @@ function RegisterScreen() {
                 </Form.Group>
 
                 <Button type='submit' variant='primary'  className='w-100 mt-3'>
-                    Register
+                {i18n.language == 'ar'?'تسجيل':'Register'}
                 </Button>
 
             </Form>
 
-            <Row className='py-3'>
+            <Row className='py-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <Col>
-                    Have an Account? <Link
+                {i18n.language == 'ar'?'لديك حساب بالفعل ؟':'Have an Account?'} 
+                    <Link
                         to={redirect ? `/login?redirect=${redirect}` : '/login'}>
-                        Sign In
-                        </Link>
+                        {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
+                    </Link>
                 </Col>
             </Row>
         </FormContainer >
