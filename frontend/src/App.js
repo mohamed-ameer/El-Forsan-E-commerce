@@ -14,6 +14,8 @@ import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import UserListScreen from './screens/UserListScreen';
+import UserEditScreen from './screens/UserEditScreen';
 
 // translate ar and en 
 import { useTranslation } from "react-i18next";
@@ -41,6 +43,8 @@ function App() {
             <Route path='/payment' element={<PaymentScreen/>} />
             <Route path='/placeorder' element={<PlaceOrderScreen/>} />
             <Route path='/order/:id' element={<OrderScreen/>} />
+            <Route path='/admin/userlist' element={<UserListScreen/>} />
+            <Route path='/admin/user/:id/edit' element={<UserEditScreen/>} />
           </Routes>
         </Container>
       </main>
