@@ -10,40 +10,40 @@ function CheckoutSteps({ step1, step2, step3, step4 }) {
             <Nav.Item>
                 {step1 ? (
                     <LinkContainer to='/login'>
-                        <Nav.Link><span><i class="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'تسجيل الدخول':'Login'}</Nav.Link>
+                        <Nav.Link><span><i className="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'تسجيل الدخول':'Login'}</Nav.Link>
                     </LinkContainer>
                 ) : (
-                        <Nav.Link disabled><span><i class="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'تسجيل الدخول':'Login'}</Nav.Link>
+                        <Nav.Link disabled><span><i className="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'تسجيل الدخول':'Login'}</Nav.Link>
                     )}
             </Nav.Item>
 
             <Nav.Item>
                 {step2 ? (
                     <LinkContainer to='/shipping'>
-                        <Nav.Link><span><i class="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'بيانات الشحن':'Shipping'}</Nav.Link>
+                        <Nav.Link><span><i className="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'بيانات الشحن':'Shipping'}</Nav.Link>
                     </LinkContainer>
                 ) : (
-                        <Nav.Link disabled><span><i class="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'بيانات الشحن':'Shipping'}</Nav.Link>
+                        <Nav.Link disabled><span><i className="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'بيانات الشحن':'Shipping'}</Nav.Link>
                     )}
             </Nav.Item>
 
             <Nav.Item>
                 {step3 ? (
                     <LinkContainer to='/payment'>
-                        <Nav.Link><span><i class="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'طريقه الدفع':'Payment'}</Nav.Link>
+                        <Nav.Link><span><i className="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'طريقه الدفع':'Payment'}</Nav.Link>
                     </LinkContainer>
                 ) : (
-                        <Nav.Link disabled><span><i class="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'طريقه الدفع':'Payment'}</Nav.Link>
+                        <Nav.Link disabled><span><i className="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'طريقه الدفع':'Payment'}</Nav.Link>
                     )}
             </Nav.Item>
 
             <Nav.Item>
                 {step4 ? (
                     <LinkContainer to='/placeorder'>
-                        <Nav.Link><span><i class="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'اتمام الطلب':'Place Order'}</Nav.Link>
+                        <Nav.Link><span><i className="fa-solid fa-circle-check"></i></span> {i18n.language == 'ar'?'اتمام الطلب':'Place Order'}</Nav.Link>
                     </LinkContainer>
                 ) : (
-                        <Nav.Link disabled><span><i class="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'اتمام الطلب':'Place Order'}</Nav.Link>
+                        <Nav.Link disabled><span><i className="fa-regular fa-circle-check"></i></span>  {i18n.language == 'ar'?'اتمام الطلب':'Place Order'}</Nav.Link>
                     )}
             </Nav.Item>
         </Nav>
