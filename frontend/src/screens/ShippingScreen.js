@@ -117,7 +117,7 @@ function ShippingScreen() {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='primary' className='w-100 mt-3'>
+                <Button type='submit' className='btn-custom-color w-100 mt-3'>
                 {i18n.language == 'ar'?'التالي':'Continue'}
                 </Button>
             </Form>

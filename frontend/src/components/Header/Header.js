@@ -103,7 +103,7 @@ function Header() {
               </Link>
               {userInfo && userInfo.isAdmin && (
               <Link className='header-nav-icons-user'>
-              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <i className="fa-solid fa-screwdriver-wrench"></i>
               <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px',direction:'rtl'}:{right: '0px',direction:'ltr'}}>                
                   <ul> 
                     <li><Link to="/admin/userlist">{i18n.language == 'ar'?'قائمه المستخدمين':'Users List'}</Link></li>

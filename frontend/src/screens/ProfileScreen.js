@@ -132,7 +132,7 @@ function ProfileScreen() {
                         </Form.Control>
                     </Form.Group>
 
-                    <Button type='submit' variant='primary' className='w-100 mt-3'>
+                    <Button type='submit' className='btn-custom-color w-100 mt-3'>
                         Update
                 </Button>
 
@@ -169,7 +169,7 @@ function ProfileScreen() {
                                             )}</td>
                                             <td>
                                                 <LinkContainer to={`/order/${order._id}`}>
-                                                    <Button className='btn-sm'>{i18n.language == 'ar'?'تفاصيل الطلب':'Order Details'}</Button>
+                                                    <Button className='btn-custom-color btn-sm'>{i18n.language == 'ar'?'تفاصيل الطلب':'Order Details'}</Button>
                                                 </LinkContainer>
                                             </td>
                                         </tr>

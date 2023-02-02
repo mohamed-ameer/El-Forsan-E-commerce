@@ -17,14 +17,30 @@ header .header-info-container{
 header .header-info-container .header-info-personal{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 header .header-info-container .header-info-personal a{
+    display: inline-block;
+    position: relative;
     text-decoration: none;
     color: #fff;
+    transition: 0.2s;
+}
+header .header-info-container .header-info-personal a::after{
+    position: absolute;
+    content: '';
+    top:110%;
+    left: 0;
+    height: 1px;
+    width:0px;
+    background-color: #fff;
+    transition:0.5s;
 }
 header .header-info-container .header-info-personal a:hover{
-    color: #222;
+    transform: translateY(-3px);
+}
+header .header-info-container .header-info-personal a:hover::after{
+    width: 100%;
 }
 header .header-info-container .header-info-personal span{
     width: 0.5px;
@@ -48,7 +64,6 @@ header .header-info-container .header-info-ln button:active{
 header .header-nav{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
     justify-content: center;
     padding:5px 0;
@@ -69,27 +84,39 @@ header .header-nav .header-nav-container .header-nav-logo img{
     display: none;
 }
 .header-nav-search{
-    background-color:var(--main-color);
+    /* background-color:var(--main-color);
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
-    border-radius:5px;
+    border-radius:5px; */
+    position: relative;   
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius:5px;
+    border: none;
+    background-color: #EAE7B1;
 }
 .header-nav-search input{
     width: 600px;
     padding: 5px 10px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius:5px;
     outline: none;
     border: none;
+    background-color: #EAE7B1;
 }
 .header-nav-search button{
+    height: 50px;
+    width: 50px;
     border: none;
-    font-size: 20px;
-    width: 40px;
-    color: #fff;
-    background-color: transparent;
+    background-color: var(--main-color);
+    /* border-top-right-radius: 5px;
+    border-bottom-right-radius:5px; */
+    border-radius: 5px;
+    color: white;
 }
 header .header-nav .header-nav-container .header-nav-icons{
     display: flex;

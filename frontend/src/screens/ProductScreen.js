@@ -102,7 +102,7 @@ function ProductScreen() {
                                 <ListGroup.Item>
                                     <Button
                                         onClick={addToCartHandler}
-                                        className='btn btn-dark btn-lg w-100'
+                                        className='btn btn-custom-color btn-lg w-100'
                                         disabled={product.countInStock == 0}
                                         type='button'>
                                         {i18n.language == 'ar'?'أضف إلي السله':'Add to Cart'}

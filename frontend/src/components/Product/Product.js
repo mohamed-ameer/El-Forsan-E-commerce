@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next"
 function Product({ product }) {
     const [t,i18n]=useTranslation();
     return (
-        <Card className="my-3 p-3 rounded">
+        <Card className="my-3 p-3 rounded shadow product-home-card">
             <Link to={`/product/${product._id}`}>
                 <Card.Img src={product.image} />
             </Link>

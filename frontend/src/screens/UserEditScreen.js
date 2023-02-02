@@ -98,7 +98,7 @@ function UserEditScreen() {
                                 </Form.Check>
                             </Form.Group>
 
-                            <Button type='submit' variant='primary'>
+                            <Button type='submit' className='btn-custom-color w-100 mt-3'>
                                 Update
                         </Button>
 

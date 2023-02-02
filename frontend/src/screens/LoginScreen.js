@@ -70,7 +70,7 @@ function LoginScreen() {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='primary' className='w-100 mt-3'>
+                <Button type='submit' variant='primary' className='btn-custom-color w-100 mt-3'>
                 {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
                 </Button>
             </Form>

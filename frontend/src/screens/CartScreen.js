@@ -114,8 +114,7 @@ function CartScreen() {
             <ListGroup.Item>
                 <Button
                     type='button'
-                    variant="success"
-                    className='w-100'
+                    className='btn-custom-color w-100'
                     disabled={cartItems.length === 0}
                     onClick={checkoutHandler}
                 >

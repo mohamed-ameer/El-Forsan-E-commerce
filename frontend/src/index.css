@@ -46,3 +46,26 @@ a{
     text-decoration: none;
     color:#111;
 }
+.product-home-card{
+    transition: 0.2s;
+}
+.product-home-card:hover{
+    transform: scale(1.04);
+}
+.btn-custom-color{
+    background-color: #6c8362 !important;
+    border: none !important;
+    transition: 0.2s !important;
+}
+.btn-custom-color:hover{
+    background-color: #4b6855 !important;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #4e7726;
+    font-weight: 600;
+}
+.nav-link:hover{
+    color: #84ae93;
+}

@@ -170,7 +170,7 @@ function PlaceOrderScreen({ history }) {
                             <ListGroup.Item>
                                 <Button
                                     type='button'
-                                    className='btn-block w-100'
+                                    className='btn-custom-color w-100'
                                     disabled={cart.cartItems === 0}
                                     onClick={placeOrder}
                                 >
