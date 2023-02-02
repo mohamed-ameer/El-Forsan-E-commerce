@@ -130,6 +130,67 @@ def getProduct(request,pk):
     product= Product.objects.get(_id=pk)
     serializer = ProductSerializer(product,many=False,context={'request': request})
     return Response(serializer.data)
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def deleteProduct(request, pk):
+    product = Product.objects.get(_id=pk)
+    product.delete()
+    return Response('Producted Deleted')
+
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def createProduct(request):
+    user = request.user
+    product = Product.objects.create(
+        user=user,
+        name='Sample Name',
+        name_ar='اسم',
+        price=0,
+        price_ar=0,
+        countInStock=0,
+        weight=0,
+        package_weight=0,
+        category='Sample Category',
+        description='',
+        description_ar=''
+    )
+
+    serializer = ProductSerializer(product, many=False)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+@permission_classes([IsAdminUser])
+def updateProduct(request, pk):
+    data = request.data
+    product = Product.objects.get(_id=pk)
+
+    product.name = data['name']
+    product.name_ar = data['name_ar']
+    product.price = data['price']
+    product.price_ar = data['price_ar']
+    product.countInStock = data['countInStock']
+    product.category = data['category']
+    product.weight = data['weight']
+    product.package_weight = data['package_weight']
+    product.description = data['description']
+    product.description_ar = data['description_ar']
+
+    product.save()
+
+    serializer = ProductSerializer(product, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def uploadImage(request):
+    data = request.data
+
+    product_id = data['product_id']
+    product = Product.objects.get(_id=product_id)
+
+    product.image = request.FILES.get('image')
+    product.save()
+
+    return Response('Image was uploaded')
 
 # ##############################################
 # shipping orders

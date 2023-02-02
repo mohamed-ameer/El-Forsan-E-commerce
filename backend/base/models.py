@@ -11,7 +11,7 @@ def user_directory_path(instance, filename):
 
 class Product(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    image = models.ImageField(upload_to=user_directory_path)
+    image = models.ImageField(upload_to=user_directory_path, null=True, blank=True,default='/placeholder.png')
     name = models.CharField(max_length=200, null=True, blank=True)
     name_ar = models.CharField(max_length=200, null=True, blank=True)
     category = models.CharField(max_length=200, null=True, blank=True)

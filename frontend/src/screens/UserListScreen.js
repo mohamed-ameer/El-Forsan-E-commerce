@@ -10,7 +10,7 @@ import { listUsers, deleteUser } from '../actions/userActions'
 function UserListScreen() {
 
     const dispatch = useDispatch()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const userList = useSelector(state => state.userList)
     const { loading, error, users } = userList

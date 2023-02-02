@@ -107,7 +107,7 @@ function Header() {
               <div className='header-nav-icons-user-list' style={i18n.language == 'ar'?{right:'-150px',direction:'rtl'}:{right: '0px',direction:'ltr'}}>                
                   <ul> 
                     <li><Link to="/admin/userlist">{i18n.language == 'ar'?'قائمه المستخدمين':'Users List'}</Link></li>
-                    <li><Link>{i18n.language == 'ar'?'قائمه المنتجات':'Products List'}</Link></li>
+                    <li><Link to="/admin/productlist">{i18n.language == 'ar'?'قائمه المنتجات':'Products List'}</Link></li>
                     <li><Link>{i18n.language == 'ar'?'قائمه الطلبيات':'Orders List'}</Link></li>                    
                   </ul>
               </div>
