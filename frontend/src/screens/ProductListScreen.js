@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import {useNavigate,Link,useSearchParams} from 'react-router-dom'
+import {useNavigate,Link,useLocation} from 'react-router-dom'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
-// import Paginate from '../components/Paginate'
+import Paginate from '../components/Paginate'
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 
@@ -27,7 +27,9 @@ function ProductListScreen() {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
-    const [keyword, setKeyword] = useSearchParams()
+    const location = useLocation()
+    let keyword = location.search
+
     useEffect(() => {
         dispatch({ type: PRODUCT_CREATE_RESET })
 
@@ -40,7 +42,7 @@ function ProductListScreen() {
             dispatch(listProducts(keyword))
         }
 
-    }, [dispatch, navigate, userInfo,keyword,successDelete, successCreate])
+    }, [dispatch, navigate, userInfo,keyword,successDelete, successCreate,createdProduct])
 
 
     const deleteHandler = (id) => {
@@ -124,7 +126,7 @@ function ProductListScreen() {
                                     ))}
                                 </tbody>
                             </Table>
-                            {/* <Paginate pages={pages} page={page} isAdmin={true} /> */}
+                            <Paginate pages={pages} page={page} isAdmin={true} />
                         </div>
                     )}
         </div>

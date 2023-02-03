@@ -1,18 +1,37 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux'
 import './Header.css'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate,useLocation } from 'react-router-dom'
 import { logout } from '../../actions/userActions'
 function Header() {
-  const [t,i18n]=useTranslation();
+  const [keyword, setKeyword] = useState('')
+  let navigate = useNavigate()
+  const location = useLocation()
+
+  const [t,i18n]=useTranslation()
   const cart = useSelector(state => state.cart)
   
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
+
   const dispatch = useDispatch()
+
   const logoutHandler = () => {
       dispatch(logout())
+  }
+
+  const handleKeyDown = event => {
+    if (event.key === 'Enter') {
+      submitHandler()
+    }
+  };
+  const submitHandler = () => {
+      if (keyword) {
+        navigate(`/?keyword=${keyword}&page=1`)
+      } else {
+        navigate(navigate(location.pathname))
+      }
   }
 
   return (
@@ -76,8 +95,8 @@ function Header() {
               <h1><Link to="/"><img src='/images/logo.png' /></Link></h1>
             </div>
             <div className='header-nav-search' style={i18n.language == 'ar'?{flexDirection:'row-reverse'}:{flexDirection:'row'}}>
-              <input type="search" placeholder={i18n.language == 'ar'?'بحث':'Search'} style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}/>
-              <button><i className="fa-solid fa-magnifying-glass"></i></button>
+              <input type="search" onChange={(e) => setKeyword(e.target.value)} onKeyDown={handleKeyDown} placeholder={i18n.language == 'ar'?'بحث':'Search'} style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}/>
+              <button onClick={submitHandler}><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div className='header-nav-icons' style={i18n.language == 'ar'?{flexDirection:'row-reverse'}:{flexDirection:'row'}}>
               <Link to="/cart" className='header-nav-icons-cart'>
@@ -120,8 +139,8 @@ function Header() {
         </div>
         <div className='container'>
             <div className='header-nav-search mobile' style={i18n.language == 'ar'?{flexDirection:'row-reverse'}:{flexDirection:'row'}}>
-              <input type="search" placeholder={i18n.language == 'ar'?'بحث':'Search'} style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}/>
-              <button><i className="fa-solid fa-magnifying-glass"></i></button>
+              <input type="search" onChange={(e) => setKeyword(e.target.value)} onKeyDown={handleKeyDown} placeholder={i18n.language == 'ar'?'بحث':'Search'} style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}/>
+              <button onClick={submitHandler}><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
       </div>

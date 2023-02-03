@@ -60,6 +60,19 @@ a{
 .btn-custom-color:hover{
     background-color: #4b6855 !important;
 }
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff !important;
+    background-color: #6c8362 !important;
+    border-color: #6c8362 !important;
+}
+.page-item .page-link {
+    color: #6c8362 !important;
+    font-weight: 700 !important;
+}
+.page-item .page-link{
+    border-radius: 0 !important;
+}
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
