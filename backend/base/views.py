@@ -171,7 +171,7 @@ def updateProduct(request, pk):
     product.countInStock = data['countInStock']
     product.category = data['category']
     product.weight = data['weight']
-    product.package_weight = data['package_weight']
+    product.package_weight = int(data['package_weight'])
     product.description = data['description']
     product.description_ar = data['description_ar']
 
