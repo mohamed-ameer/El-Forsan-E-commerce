@@ -41,7 +41,7 @@ class UserSerializerWithToken(UserSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
-        fields=('_id','name','name_ar','image','description','description_ar','weight','package_weight','rating','numReviews','price','price_ar','countInStock')
+        fields=('_id','name','name_ar','image','description','description_ar','weight','package_weight','rating','numReviews','price','price_ar','category','countInStock')
 
 class ShippingAddressSerializer(serializers.ModelSerializer):
     class Meta:
