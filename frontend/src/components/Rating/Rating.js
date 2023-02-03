@@ -65,8 +65,10 @@ function Rating({ value, text, color }) {
     
                     </i>
                 </span>
-                </div>    
-                <span style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>{text && i18n.language == 'ar'?`${text} مراجعه`:`${text} reviews`}</span>
+                </div> 
+                {text &&
+                <span style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>{i18n.language == 'ar' ?`${text} مراجعه`:`${text} reviews`}</span>
+                }   
             </div>
         )
     }
