@@ -221,11 +221,11 @@ function OrderScreen() {
                                     )}
                                 </ListGroup>
                                 {loadingDeliver && <Loader />}
-                                {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                                {userInfo && userInfo.isAdmin && !order.isDelivered && (
                                     <ListGroup.Item>
                                         <Button
                                             type='button'
-                                            className='btn btn-block'
+                                            className='btn w-100 btn-custom-color'
                                             onClick={deliverHandler}
                                         >
                                             Mark As Delivered

@@ -108,7 +108,7 @@ function Header() {
                   <ul> 
                     <li><Link to="/admin/userlist">{i18n.language == 'ar'?'قائمه المستخدمين':'Users List'}</Link></li>
                     <li><Link to="/admin/productlist">{i18n.language == 'ar'?'قائمه المنتجات':'Products List'}</Link></li>
-                    <li><Link>{i18n.language == 'ar'?'قائمه الطلبيات':'Orders List'}</Link></li>                    
+                    <li><Link to="/admin/orderlist">{i18n.language == 'ar'?'قائمه الطلبيات':'Orders List'}</Link></li>                    
                   </ul>
               </div>
             </Link>
