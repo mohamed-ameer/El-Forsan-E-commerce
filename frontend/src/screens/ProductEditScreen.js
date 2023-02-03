@@ -35,10 +35,13 @@ function ProductEditScreen() {
     const productUpdate = useSelector(state => state.productUpdate)
     const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = productUpdate
 
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
 
     useEffect(() => {
-
-        if (successUpdate) {
+        if (!userInfo || !userInfo.isAdmin) {
+            navigate('/login')
+        }else if (successUpdate) {
             dispatch({ type: PRODUCT_UPDATE_RESET })
             navigate('/admin/productlist')
         } else {
@@ -62,7 +65,7 @@ function ProductEditScreen() {
 
 
 
-    }, [dispatch, product, id, navigate, successUpdate])
+    }, [dispatch, product, id, navigate, successUpdate,userInfo])
 
     const submitHandler = (e) => {
         e.preventDefault()
