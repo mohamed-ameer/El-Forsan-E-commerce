@@ -81,6 +81,15 @@ function OrderScreen() {
         <Message variant='danger'>{error}</Message>
     ) : (
                 <div style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    {userInfo && userInfo.isAdmin &&
+                        <nav aria-label="breadcrumb" className="mb-4">
+                            <ol className="breadcrumb"  style={{direction:'ltr',backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
+                                <li className="breadcrumb-item "><Link to='/'>Home</Link></li>
+                                <li className="breadcrumb-item "><Link to='/admin/orderlist'>Orders List</Link></li>
+                                <li className="breadcrumb-item "><Link>{order._id}</Link></li>                                      
+                            </ol>
+                        </nav>
+                    }
                     <h1>{i18n.language == 'ar'?'الطلب بالرمز رقم :':'Order ID:'}{order._id}</h1>
                     <Row>
                         <Col md={8}>

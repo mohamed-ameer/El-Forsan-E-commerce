@@ -166,7 +166,12 @@ function ProfileScreen() {
                                             <td>{i18n.language == 'ar'?`${order.totalPrice} جنيه`:`${order.totalPrice} EGP`}</td>
                                             <td>{order.isPaid ? order.paidAt.substring(0, 10) : (
                                                 <i className='fas fa-times' style={{ color: 'red' }}></i>
-                                            )}</td>
+                                                )}
+                                            </td>
+                                            <td>{order.isDelivered ? (order.deliveredAt.substring(0, 10)) : (
+                                                    <i className='fas fa-times' style={{ color: 'red' }}></i>
+                                                )}
+                                            </td>
                                             <td>
                                                 <LinkContainer to={`/order/${order._id}`}>
                                                     <Button className='btn-custom-color btn-sm'>{i18n.language == 'ar'?'تفاصيل الطلب':'Order Details'}</Button>

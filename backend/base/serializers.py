@@ -38,10 +38,19 @@ class UserSerializerWithToken(UserSerializer):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
 
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = '__all__'
 class ProductSerializer(serializers.ModelSerializer):
+    reviews = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model=Product
-        fields=('_id','name','name_ar','image','description','description_ar','weight','package_weight','rating','numReviews','price','price_ar','category','countInStock')
+        fields= '__all__'
+    def get_reviews(self, obj):
+        reviews = obj.review_set.all()
+        serializer = ReviewSerializer(reviews, many=True)
+        return serializer.data    
 
 class ShippingAddressSerializer(serializers.ModelSerializer):
     class Meta:
