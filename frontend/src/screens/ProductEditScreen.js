@@ -236,13 +236,14 @@ function ProductEditScreen() {
                             <Form.Group controlId='category'>
                                 <Form.Label>Category</Form.Label>
                                 <Form.Control
-
-                                    type='text'
-                                    placeholder='Enter category'
+                                    as='select'
                                     value={category}
                                     required
                                     onChange={(e) => setCategory(e.target.value)}
                                 >
+                                    <option value=''>Select...</option>
+                                    <option value='1'>مخللات</option>
+                                    <option value='2'>...</option>
                                 </Form.Control>
                             </Form.Group>
 
