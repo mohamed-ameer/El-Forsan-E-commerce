@@ -9,8 +9,8 @@ function Paginate({ pages, page, keyword = '', isAdmin = false }) {
     }
 
     return (pages > 1 && (
-        <nav className='mt-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-            <ul className="pagination">
+        <nav className='mt-5' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+            <ul className="pagination justify-content-center">
                 {[...Array(pages).keys()].map((x) => (
                     <li className={x + 1 === page?"page-item active":"page-item"} key={x + 1}><Link className="page-link" to={!isAdmin ?`/?keyword=${keyword}&page=${x + 1}`: `/admin/productlist/?keyword=${keyword}&page=${x + 1}`}>{x + 1}</Link></li>
                  ))}

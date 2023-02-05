@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link ,useNavigate,useParams} from 'react-router-dom'
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
+import { useAlert } from 'react-alert'
 import { Row, Col, Image, ListGroup, Button, Card, Form,} from 'react-bootstrap'
 import Rating from '../components/Rating/Rating'
 import Loader from '../components/Loader/Loader'
@@ -19,6 +20,7 @@ function ProductScreen() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [t,i18n]=useTranslation();
+  const alert = useAlert();
   const dispatch = useDispatch();
 
   const productDetails = useSelector(state => state.productDetails)
@@ -43,9 +45,23 @@ function ProductScreen() {
   },[dispatch,id,successProductReview])
 
     const addToCartHandler = () => {
-    // navigate(`/cart/${id}?qty=${qty}`)
         if (id) {
             dispatch(addToCart(id, qty))
+            alert.show(
+                <>
+                    <svg xmlns="http://www.w3.org/2000/svg" style={{display: "none"}}>
+                    <symbol id="check-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </symbol>
+                    </svg>
+                    <div className="alert alert-success d-flex align-items-center" role="alert">
+                        <svg className="bi flex-shrink-0 me-2" width="15" height="15" fill="green" role="img" aria-label="Success:"><use href="#check-circle-fill"/></svg>
+                        <div>
+                        تم إضافه المنتج للعربه
+                        </div>
+                    </div>
+                </>
+                )
         }
     }
 
