@@ -20,7 +20,7 @@
 .carousel-indicators [data-bs-target] {
     width: 10px !important;
     height: 10px !important;
-    background-color: #000 !important;
+    background-color: #25372b !important;
     border-radius: 50% !important;
     text-indent: unset !important; 
     background-clip: unset !important;
