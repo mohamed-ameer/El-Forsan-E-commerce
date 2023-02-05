@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link ,useNavigate,useParams} from 'react-router-dom'
 import { useTranslation } from "react-i18next";
-import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Button, Card, Form,} from 'react-bootstrap'
 import Rating from '../components/Rating/Rating'
 import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
 import { useDispatch,useSelector } from 'react-redux'
 import { listProductDetails, createProductReview } from '../actions/productActions'
+import { addToCart} from '../actions/cartActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
 
@@ -42,7 +43,10 @@ function ProductScreen() {
   },[dispatch,id,successProductReview])
 
     const addToCartHandler = () => {
-    navigate(`/cart/${id}?qty=${qty}`)
+    // navigate(`/cart/${id}?qty=${qty}`)
+        if (id) {
+            dispatch(addToCart(id, qty))
+        }
     }
 
     const submitHandler = (e) => {

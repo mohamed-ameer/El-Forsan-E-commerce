@@ -26,6 +26,7 @@ main{
     font-size: 35px;
     color: #fff;
     background-color: #4DA047;
+    cursor: pointer;
     box-shadow: -2px -2px 12px -4px rgba(0,0,0,0.75);
     transition: 0.5s;
 }
@@ -38,6 +39,34 @@ main{
 }
 .whatsapp-fixed-icon a:hover{
     color: #fff;
+}
+.messenger-fixed-icon{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 90px;
+    left: 30px;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: #006AFF;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: -2px -2px 12px -4px rgba(0,0,0,0.75);
+    transition: 0.5s;
+}
+.messenger-fixed-icon:hover{
+    box-shadow: -2px -2px 16px 2px rgba(0,0,0,0.75);
+}
+.messenger-fixed-icon a{
+    color: #006AFF;
+    text-decoration: none;
+}
+.messenger-fixed-icon a:hover{
+    color: #006AFF;
 }
 .rating span{
     margin: 0.1rem;

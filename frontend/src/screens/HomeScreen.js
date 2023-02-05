@@ -24,7 +24,7 @@ function HomeScreen() {
 
     return (
     <>
-        <div className='container pb-5 pt-0' style={{maxWidth:"800px"}}>
+        <div className='pb-5 pt-0'>
             <Slider/>
         </div>
         {loading ? <Loader />

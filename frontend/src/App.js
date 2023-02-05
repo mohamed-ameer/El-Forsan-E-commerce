@@ -33,7 +33,8 @@ function App() {
     <Router>
       <Header />
       <div className='whatsapp-fixed-icon'><a><i className="fa-brands fa-whatsapp"></i></a></div>
-      <main className='pb-5'>
+      <div className='messenger-fixed-icon'><a><i className="fa-brands fa-facebook-messenger"></i></a></div>
+      <main className='py-5'>
         <Container>
           <Routes>
             <Route path='/' element={<HomeScreen/>} exact />
