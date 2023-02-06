@@ -33,7 +33,7 @@ function CartScreen() {
     <Row className='gy-4' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
         <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
-            <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+            <li className="breadcrumb-item "><Link to='/'><span><i className="fa-solid fa-house-chimney"></i></span>    {i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
                 {currentItem && 
                 <li className="breadcrumb-item active " aria-current="page">
                 <Link to={`/product/${currentItem.product}`}>{i18n.language == 'ar' && currentItem?currentItem.name_ar:currentItem.name}</Link>
