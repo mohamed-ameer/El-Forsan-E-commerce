@@ -101,7 +101,7 @@ function ProductScreen() {
                             </ListGroup.Item>
 
                             <ListGroup.Item style={{direction:'ltr'}}>
-                                <Rating value={product.rating} text={`${product.numReviews}`} color={'#f8e825'}/>
+                                <Rating value={product.rating} text={`${product.numReviews}`} color={'#4e7726'}/>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
@@ -173,7 +173,7 @@ function ProductScreen() {
                             {product.reviews.map((review) => (
                                 <ListGroup.Item key={review._id}>
                                     <strong>{review.name}</strong>
-                                    <Rating value={review.rating} color='#f8e825' />
+                                    <Rating value={review.rating} color='#4e7726' />
                                     <p>{review.createdAt.substring(0, 10)}</p>
                                     <p>{review.comment}</p>
                                 </ListGroup.Item>
