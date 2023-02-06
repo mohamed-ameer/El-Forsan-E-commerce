@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useAlert } from 'react-alert'
 import { Row, Col, Image, ListGroup, Button, Card, Form,} from 'react-bootstrap'
 import Rating from '../components/Rating/Rating'
+import { Rating as ReactRating } from 'react-simple-star-rating'
 import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
 import { useDispatch,useSelector } from 'react-redux'
@@ -65,6 +66,9 @@ function ProductScreen() {
         }
     }
 
+    const handleRating = (rate) => {
+        setRating(rate)
+    }
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createProductReview(
@@ -166,21 +170,25 @@ function ProductScreen() {
 
                 <Row>
                     <Col md={6}>
-                        <h4>Reviews</h4>
+                        <div className="alert alert-dark mt-2" role="alert">
+                            <h2>{i18n.language == 'ar'?'المراجعات':'Reviews'}</h2>
+                        </div>
                         {product.reviews.length === 0 && <Message variant='info'>No Reviews</Message>}
 
-                        <ListGroup variant='flush'>
+                        <ListGroup>
                             {product.reviews.map((review) => (
                                 <ListGroup.Item key={review._id}>
-                                    <strong>{review.name}</strong>
-                                    <Rating value={review.rating} color='#4e7726' />
-                                    <p>{review.createdAt.substring(0, 10)}</p>
+                                    <div className='d-flex align-items-center'>
+                                        <strong>{review.name}</strong>
+                                        <Rating value={review.rating} color='#4e7726' />
+                                    </div>
+                                    <span>{review.createdAt.substring(0, 10)}</span>
                                     <p>{review.comment}</p>
                                 </ListGroup.Item>
                             ))}
 
                             <ListGroup.Item>
-                                <h4>Write a review</h4>
+                                <h4 className="alert alert-dark mt-2" role="alert">{i18n.language == 'ar'?'أضف مراجعه':'Write a review'}</h4>
 
                                 {loadingProductReview && <Loader />}
                                 {successProductReview && <Message variant='success'>Review Submitted</Message>}
@@ -189,23 +197,14 @@ function ProductScreen() {
                                 {userInfo ? (
                                     <Form onSubmit={submitHandler}>
                                         <Form.Group controlId='rating'>
-                                            <Form.Label>Rating</Form.Label>
-                                            <Form.Control
-                                                as='select'
-                                                value={rating}
-                                                onChange={(e) => setRating(e.target.value)}
-                                            >
-                                                <option value=''>Select...</option>
-                                                <option value='1'>1 - Poor</option>
-                                                <option value='2'>2 - Fair</option>
-                                                <option value='3'>3 - Good</option>
-                                                <option value='4'>4 - Very Good</option>
-                                                <option value='5'>5 - Excellent</option>
-                                            </Form.Control>
+                                            <div className='d-flex align-items-center'>
+                                                <Form.Label className='mb-0'>{i18n.language == 'ar'?'تقييمك :':'Rating :'}</Form.Label>
+                                                <ReactRating onClick={handleRating} size={25} fillColor="#4e7726" rtl={i18n.language == 'ar'?true:false}></ReactRating>
+                                            </div>
                                         </Form.Group>
 
                                         <Form.Group controlId='comment'>
-                                            <Form.Label>Review</Form.Label>
+                                            <Form.Label>{i18n.language == 'ar'?'مراجعتك :':'Review :'}</Form.Label>
                                             <Form.Control
                                                 as='textarea'
                                                 row='5'
@@ -217,7 +216,7 @@ function ProductScreen() {
                                         <Button
                                             disabled={loadingProductReview}
                                             type='submit'
-                                            variant='primary'
+                                            className='btn btn-custom-color w-100 mt-3'
                                         >
                                             Submit
                                         </Button>
