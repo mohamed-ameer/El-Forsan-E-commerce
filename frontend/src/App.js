@@ -32,8 +32,8 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className='whatsapp-fixed-icon'><a><i className="fa-brands fa-whatsapp"></i></a></div>
-      <div className='messenger-fixed-icon'><a><i className="fa-brands fa-facebook-messenger"></i></a></div>
+      <div className='whatsapp-fixed-icon'><a href="https://wa.me/201023096900" target="_blank"><i className="fa-brands fa-whatsapp"></i></a></div>
+      <div className='messenger-fixed-icon'><a href="http://m.me/elforsanolive" target="_blank"><i className="fa-brands fa-facebook-messenger"></i></a></div>
       <main className='py-5'>
         <Container>
           <Routes>

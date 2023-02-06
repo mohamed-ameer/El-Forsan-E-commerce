@@ -26,21 +26,19 @@ footer .footer-contactus .social-icons a{
     width: 50px;height: 50px;
     border: none;
     background-color: #313131;
+    color: #fff !important;
     transition: 0.3s;
 }
 footer .footer-contactus .social-icons a:nth-child(1):hover{
     background-color: #34A853;
-    /* color: #000; */
     cursor: pointer;
 }
 footer .footer-contactus .social-icons a:nth-child(2):hover{
     background-color: #BB001B;
-    /* color: #000; */
     cursor: pointer;
 }
 footer .footer-contactus .social-icons a:nth-child(3):hover{
     background-color: #045e94;
-    /* color: #000; */
     cursor: pointer;
 }
 .payment-icons{

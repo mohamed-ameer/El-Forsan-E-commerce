@@ -18,9 +18,9 @@ function Footer() {
               <h3>{t('footer.contact_us.title')}</h3>
               <p><i className="fa-solid fa-location-dot"></i> {t('footer.contact_us.content')}</p>
               <div className='social-icons'>
-                <a><i className="fa-brands fa-whatsapp"></i></a>
-                <a><i className="fa-brands fa-google-plus-g"></i></a>
-                <a><i className="fa-solid fa-phone-volume"></i></a>
+                <a href="https://wa.me/201023096900" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
+                <a href='mailto:saadelweshahy@gmail.com' target="_blank"><i className="fa-brands fa-google-plus-g"></i></a>
+                <a href='tel:+201023096900' target="_blank"><i className="fa-solid fa-phone-volume"></i></a>
               </div>
             </div>
           </div>
