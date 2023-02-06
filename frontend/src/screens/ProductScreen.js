@@ -171,7 +171,7 @@ function ProductScreen() {
                 <Row>
                     <Col md={6}>
                         <div className="alert alert-dark mt-2" role="alert">
-                            <h2>{i18n.language == 'ar'?'المراجعات':'Reviews'}</h2>
+                            <h2>{i18n.language == 'ar'?'المراجعات':'Reviews'} ({product.reviews.length})</h2>
                         </div>
                         {product.reviews.length === 0 && <Message variant='info'>{i18n.language == 'ar'?'لا توجد مراجعه':'No Reviews'}</Message>}
 
