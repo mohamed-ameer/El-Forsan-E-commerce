@@ -121,3 +121,6 @@ a{
 .breadcrumb-item{
     font-weight: 600;
 }
+.breadcrumb-item a:hover{
+    color: #0b7204 !important;
+}
