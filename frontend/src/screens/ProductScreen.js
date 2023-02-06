@@ -173,7 +173,7 @@ function ProductScreen() {
                         <div className="alert alert-dark mt-2" role="alert">
                             <h2>{i18n.language == 'ar'?'المراجعات':'Reviews'}</h2>
                         </div>
-                        {product.reviews.length === 0 && <Message variant='info'>No Reviews</Message>}
+                        {product.reviews.length === 0 && <Message variant='info'>{i18n.language == 'ar'?'لا توجد مراجعه':'No Reviews'}</Message>}
 
                         <ListGroup>
                             {product.reviews.map((review) => (
@@ -218,12 +218,18 @@ function ProductScreen() {
                                             type='submit'
                                             className='btn btn-custom-color w-100 mt-3'
                                         >
-                                            Submit
+                                            {i18n.language == 'ar'?'إرسال':'Submit'}
                                         </Button>
 
                                     </Form>
                                 ) : (
-                                        <Message variant='info'>Please <Link to='/login'>login</Link> to write a review</Message>
+                                    <>
+                                        {i18n.language == 'ar'?
+                                            <Message variant='info'>ارجوك قم <Link to='/login'>بتسجيل الدخول </Link>اولا لكتابه مراجعتك </Message>
+                                            :
+                                            <Message variant='info'>Please <Link to='/login'>login</Link> to write a review</Message>
+                                        }
+                                    </>
                                     )}
                             </ListGroup.Item>
                         </ListGroup>
