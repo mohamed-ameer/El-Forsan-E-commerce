@@ -28,6 +28,7 @@ function HomeScreen() {
             <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
                 <li className="breadcrumb-item "><Link to='/'><span><i className="fa-solid fa-house-chimney"></i></span>    {i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
                 <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                <li className="breadcrumb-item text-center active" aria-current="page">{i18n.language == 'ar'?'تسوق':'shop'}</li>
             </ol>
         </nav> 
         <div className='pb-5 pt-0'>
