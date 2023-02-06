@@ -133,3 +133,6 @@ a{
 .breadcrumb-item a:hover{
     color: #0b7204 !important;
 }
+.card-body a:hover{
+    color: #0b7204 !important;
+}
