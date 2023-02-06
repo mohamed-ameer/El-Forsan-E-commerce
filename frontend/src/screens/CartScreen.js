@@ -30,7 +30,7 @@ function CartScreen() {
         navigate('/login?redirect=shipping')
     }
   return (
-    <Row className='align-items-center gy-4' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+    <Row className='gy-4' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
         <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
             <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
