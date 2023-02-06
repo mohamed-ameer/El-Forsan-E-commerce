@@ -83,7 +83,7 @@ function ProductScreen() {
                 :
                 <div style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}> 
                 <nav aria-label="breadcrumb" className="mb-4">
-                    <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
+                    <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
                         <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
                         <li className="breadcrumb-item text-center" aria-current="page">/</li>
                         <li className="breadcrumb-item active " aria-current="page">{i18n.language == 'ar'?product.name_ar:product.name}</li>

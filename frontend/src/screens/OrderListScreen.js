@@ -33,7 +33,7 @@ function OrderListScreen() {
     return (
         <div>
             <nav aria-label="breadcrumb" className="mb-4">
-                <ol className="breadcrumb"  style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
+                <ol className="breadcrumb"  style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
                     <li className="breadcrumb-item "><Link to='/'>Home</Link></li>
                     <li className="breadcrumb-item text-center" aria-current="page">/</li>
                     <li className="breadcrumb-item active"><Link>Orders List</Link></li>                                     
