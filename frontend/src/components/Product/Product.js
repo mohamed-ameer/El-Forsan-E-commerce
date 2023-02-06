@@ -33,9 +33,9 @@ function Product({ product }) {
         }
     }
     return (
-        <Card className="my-3 rounded shadow product-home-card">
+        <Card className="my-3 rounded shadow product-home-card" style={{maxWidth:"300px"}}>
             <Link to={`/product/${product._id}`}>
-                <Card.Img src={product.image} />
+                <Card.Img src={product.image} style={{maxHeight:"300px"}}/>
             </Link>
 
             <Card.Body>
@@ -46,13 +46,13 @@ function Product({ product }) {
                 </Link>
 
                 <Card.Text as="div">
-                    <div className="my-3">
+                    <div className="">
                         <Rating value={product.rating} text={`${product.numReviews}`} color={'#f8e825'} />
                     </div>
                 </Card.Text>
 
 
-                <Card.Text as="h3" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <Card.Text as="h5" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 {i18n.language == 'ar' ?`${product.price} جنيه`:`${product.price} EGP`}
                 </Card.Text>
                 <Button

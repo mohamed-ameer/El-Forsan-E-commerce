@@ -229,4 +229,7 @@ header .header-nav .header-nav-container .header-nav-icons-user{
     .header-nav-search.mobile input{
         width: 210px;
     }
+    .header-info-personal{
+        font-size: 13px;
+    }
 }

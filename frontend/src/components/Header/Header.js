@@ -39,9 +39,9 @@ function Header() {
       <div className='header-info'>
         <div className='header-info-container container'>
           <div className='header-info-personal'>
-            <a href='mailto:someone@example.com'><i className="fa-solid fa-envelope"></i> example@gmail.com</a>
+            <a href='mailto:saadelweshahy@gmail.com'><i className="fa-solid fa-envelope"></i> saadelweshahy@gmail.com</a>
             <span></span>
-            <a href='tel:+201001733917'><i className="fa-solid fa-phone-volume"></i> 01001733917</a>
+            <a href='tel:+201023096900'><i className="fa-solid fa-phone-volume"></i> +20 1023096900</a>
           </div>
           <div className='header-info-ln'>
             {/* change to english */}
