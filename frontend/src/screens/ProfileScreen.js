@@ -68,11 +68,13 @@ function ProfileScreen() {
     return (
         <>
     {userInfo &&
-        <Row className='gy-4' style={i18n.language == 'ar'?{flexDirection:'row-reverse'}:{flexDirection:'row'}}>
+        <Row className='gy-4' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
             <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="breadcrumb" style={{direction:'ltr',backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
+            <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
                 <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>  
-                <li className="breadcrumb-item active " aria-current="page">{i18n.language == 'ar'?'بيانات المستخدم':'Profile'}</li>
+                <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                <li className="breadcrumb-item" aria-current="page">{i18n.language == 'ar'?'بيانات المستخدم':'Profile'}</li>
+                <li className="breadcrumb-item text-center" aria-current="page">/</li>
                 <li className="breadcrumb-item active " aria-current="page">{userInfo.name}</li>
             </ol>
             </nav> 

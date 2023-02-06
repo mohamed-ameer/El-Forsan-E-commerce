@@ -32,13 +32,14 @@ function CartScreen() {
   return (
     <Row className='align-items-center gy-4' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
         <nav aria-label="breadcrumb" className="mb-4">
-        <ol className="breadcrumb" style={{direction:'ltr',backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
+        <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
             <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
                 {currentItem && 
                 <li className="breadcrumb-item active " aria-current="page">
                 <Link to={`/product/${currentItem.product}`}>{i18n.language == 'ar' && currentItem?currentItem.name_ar:currentItem.name}</Link>
                 </li>
                 }    
+            <li className="breadcrumb-item text-center" aria-current="page">/</li>
             <li className="breadcrumb-item active " aria-current="page">{i18n.language == 'ar'?'العربه':'cart'}</li>
         </ol>
         </nav>    

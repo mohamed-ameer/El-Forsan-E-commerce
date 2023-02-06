@@ -83,10 +83,12 @@ function OrderScreen() {
                 <div style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                     {userInfo && userInfo.isAdmin &&
                         <nav aria-label="breadcrumb" className="mb-4">
-                            <ol className="breadcrumb"  style={{direction:'ltr',backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
+                            <ol className="breadcrumb"  style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'8px'}}>
                                 <li className="breadcrumb-item "><Link to='/'>Home</Link></li>
+                                <li className="breadcrumb-item text-center" aria-current="page">/</li>
                                 <li className="breadcrumb-item "><Link to='/admin/orderlist'>Orders List</Link></li>
-                                <li className="breadcrumb-item "><Link>{order._id}</Link></li>                                      
+                                <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                                <li className="breadcrumb-item active"><Link>{order._id}</Link></li>                                      
                             </ol>
                         </nav>
                     }
