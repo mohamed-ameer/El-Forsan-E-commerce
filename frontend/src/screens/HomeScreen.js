@@ -6,7 +6,7 @@ import Loader from '../components/Loader/Loader'
 import Message from '../components/Message/Message'
 import Slider from '../components/Slider/Slider'
 import Paginate from '../components/Paginate'
-import {useLocation } from 'react-router-dom'
+import {useLocation ,Link} from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux';
 import {listProducts} from '../actions/productActions'
 function HomeScreen() {
@@ -24,6 +24,12 @@ function HomeScreen() {
 
     return (
     <>
+        <nav aria-label="breadcrumb" className="mb-4" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+            <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
+                <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+                <li className="breadcrumb-item text-center" aria-current="page">/</li>
+            </ol>
+        </nav> 
         <div className='pb-5 pt-0'>
             <Slider/>
         </div>

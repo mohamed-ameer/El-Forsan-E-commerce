@@ -47,80 +47,89 @@ function RegisterScreen() {
     }
 
     return (
-        <FormContainer>
-            {redirect == 'shipping' && <CheckoutSteps step1 />}
-            <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-            <h1>{i18n.language == 'ar'?'إنشاء حساب':'SIGN UP'}</h1>
-            </div>
-            {message && <Message variant='danger'>{message}</Message>}
-            {error && <Message variant='danger'>{error}</Message>}
-            {loading && <Loader />}
-            <Form onSubmit={submitHandler}>
+        <>
+            <nav aria-label="breadcrumb" className="mb-4" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
+                    <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+                    <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                    <li className="breadcrumb-item active" aria-current="page">{i18n.language == 'ar'?'إنشاء حساب':'SIGN UP'}</li>
+                </ol>
+            </nav> 
+            <FormContainer>
+                {redirect == 'shipping' && <CheckoutSteps step1 />}
+                <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <h1>{i18n.language == 'ar'?'إنشاء حساب':'SIGN UP'}</h1>
+                </div>
+                {message && <Message variant='danger'>{message}</Message>}
+                {error && <Message variant='danger'>{error}</Message>}
+                {loading && <Loader />}
+                <Form onSubmit={submitHandler}>
 
-                <Form.Group controlId='name' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                    <Form.Label>{i18n.language == 'ar'?'الاسم':'Name'}</Form.Label>
-                    <Form.Control
-                        required
-                        type='name'
-                        placeholder={i18n.language == 'ar'?'ادخل الاسم':'Enter name'}
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    >
-                    </Form.Control>
-                </Form.Group>
+                    <Form.Group controlId='name' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                        <Form.Label>{i18n.language == 'ar'?'الاسم':'Name'}</Form.Label>
+                        <Form.Control
+                            required
+                            type='name'
+                            placeholder={i18n.language == 'ar'?'ادخل الاسم':'Enter name'}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
 
-                <Form.Group controlId='email' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                    <Form.Label>{i18n.language == 'ar'?'البريد الالكتروني':'Email Address'}</Form.Label>
-                    <Form.Control
-                        required
-                        type='email'
-                        placeholder={i18n.language == 'ar'?'ادخل البريد الالكتروني':'Enter Email'}
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    >
-                    </Form.Control>
-                </Form.Group>
+                    <Form.Group controlId='email' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                        <Form.Label>{i18n.language == 'ar'?'البريد الالكتروني':'Email Address'}</Form.Label>
+                        <Form.Control
+                            required
+                            type='email'
+                            placeholder={i18n.language == 'ar'?'ادخل البريد الالكتروني':'Enter Email'}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
 
-                <Form.Group controlId='password' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                    <Form.Label>{i18n.language == 'ar'?'كلمه السر':'Password'}</Form.Label>
-                    <Form.Control
-                        required
-                        type='password'
-                        placeholder={i18n.language == 'ar'?'ادخل كلمه السر':'Enter Password'}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    >
-                    </Form.Control>
-                </Form.Group>
+                    <Form.Group controlId='password' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                        <Form.Label>{i18n.language == 'ar'?'كلمه السر':'Password'}</Form.Label>
+                        <Form.Control
+                            required
+                            type='password'
+                            placeholder={i18n.language == 'ar'?'ادخل كلمه السر':'Enter Password'}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
 
-                <Form.Group controlId='passwordConfirm' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                    <Form.Label>{i18n.language == 'ar'?'تاكيد كلمه السر':'Confirm Password'}</Form.Label>
-                    <Form.Control
-                        required
-                        type='password'
-                        placeholder={i18n.language == 'ar'?'تاكيد كلمه السر':'Confirm Password'}
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    >
-                    </Form.Control>
-                </Form.Group>
+                    <Form.Group controlId='passwordConfirm' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                        <Form.Label>{i18n.language == 'ar'?'تاكيد كلمه السر':'Confirm Password'}</Form.Label>
+                        <Form.Control
+                            required
+                            type='password'
+                            placeholder={i18n.language == 'ar'?'تاكيد كلمه السر':'Confirm Password'}
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
 
-                <Button type='submit' className='btn-custom-color w-100 mt-3'>
-                {i18n.language == 'ar'?'تسجيل':'Register'}
-                </Button>
+                    <Button type='submit' className='btn-custom-color w-100 mt-3'>
+                    {i18n.language == 'ar'?'تسجيل':'Register'}
+                    </Button>
 
-            </Form>
+                </Form>
 
-            <Row className='py-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                <Col>
-                {i18n.language == 'ar'?'لديك حساب بالفعل ؟':'Have an Account?'} 
-                    <Link
-                        to={redirect ? `/login?redirect=${redirect}` : '/login'}>
-                        {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
-                    </Link>
-                </Col>
-            </Row>
-        </FormContainer >
+                <Row className='py-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Col>
+                    {i18n.language == 'ar'?'لديك حساب بالفعل ؟':'Have an Account?'} 
+                        <Link
+                            to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+                            {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
+                        </Link>
+                    </Col>
+                </Row>
+            </FormContainer >
+        </>
     )
 }
 

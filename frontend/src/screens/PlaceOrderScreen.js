@@ -55,6 +55,15 @@ function PlaceOrderScreen({ history }) {
 
     return (
         <div>
+            <nav aria-label="breadcrumb" className="mb-4" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
+                    <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+                    <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                    <li className="breadcrumb-item " aria-current="page"><Link to='/cart'>{i18n.language == 'ar'?'العربه':'cart'}</Link></li>
+                    <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                    <li className="breadcrumb-item active" aria-current="page">{i18n.language == 'ar' ? 'تقديم عمليه الشراء' : 'Proceed To Checkout' }</li>
+                </ol>
+            </nav> 
             <CheckoutSteps step1 step2 step3 step4 />
             <Row style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <Col md={8}>

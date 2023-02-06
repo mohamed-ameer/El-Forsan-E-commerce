@@ -38,54 +38,63 @@ function LoginScreen() {
     }
 
     return (
-        <FormContainer>
-            {redirect == 'shipping' && <CheckoutSteps step1 />}
-            <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-            <h1>{i18n.language == 'ar'?'تسجيل الدخول':'SIGN IN'}</h1>
-            </div>
-            {error && <Message variant='danger'>{error}</Message>}
-            {loading && <Loader />}
-            <Form onSubmit={submitHandler}>
+        <>
+            <nav aria-label="breadcrumb" className="mb-4" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <ol className="breadcrumb" style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
+                    <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+                    <li className="breadcrumb-item text-center" aria-current="page">/</li>
+                    <li className="breadcrumb-item active" aria-current="page">{i18n.language == 'ar'?'تسجيل الدخول':'SIGN IN'}</li>
+                </ol>
+            </nav> 
+            <FormContainer>
+                {redirect == 'shipping' && <CheckoutSteps step1 />}
+                <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <h1>{i18n.language == 'ar'?'تسجيل الدخول':'SIGN IN'}</h1>
+                </div>
+                {error && <Message variant='danger'>{error}</Message>}
+                {loading && <Loader />}
+                <Form onSubmit={submitHandler}>
 
-                <Form.Group controlId='email' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                    <Form.Label>{i18n.language == 'ar'?'البريد الالكتروني':'Email Address'}</Form.Label>
-                    <Form.Control
-                        type='email'
-                        placeholder={i18n.language == 'ar'?'ادخل البريد الالكتروني':'Enter Email'}
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    >
-                    </Form.Control>
-                </Form.Group>
+                    <Form.Group controlId='email' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                        <Form.Label>{i18n.language == 'ar'?'البريد الالكتروني':'Email Address'}</Form.Label>
+                        <Form.Control
+                            type='email'
+                            placeholder={i18n.language == 'ar'?'ادخل البريد الالكتروني':'Enter Email'}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
 
 
-                <Form.Group controlId='password' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                    <Form.Label>{i18n.language == 'ar'?'كلمه السر':'Password'}</Form.Label>
-                    <Form.Control
-                        type='password'
-                        placeholder={i18n.language == 'ar'?'ادخل كلمه السر':'Enter Password'}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    >
-                    </Form.Control>
-                </Form.Group>
+                    <Form.Group controlId='password' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                        <Form.Label>{i18n.language == 'ar'?'كلمه السر':'Password'}</Form.Label>
+                        <Form.Control
+                            type='password'
+                            placeholder={i18n.language == 'ar'?'ادخل كلمه السر':'Enter Password'}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        >
+                        </Form.Control>
+                    </Form.Group>
 
-                <Button type='submit' variant='primary' className='btn-custom-color w-100 mt-3'>
-                {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
-                </Button>
-            </Form>
+                    <Button type='submit' variant='primary' className='btn-custom-color w-100 mt-3'>
+                    {i18n.language == 'ar'?'تسجيل الدخول':'Sign In'}
+                    </Button>
+                </Form>
 
-            <Row className='py-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
-                <Col>
-                {i18n.language == 'ar'?'عميل جديد ؟':'New Customer?'} 
-                    <Link
-                        to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-                        {i18n.language == 'ar'?'إنشاء حساب':'Register'}
-                    </Link>
-                </Col>
-            </Row>
+                <Row className='py-3' style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                    <Col>
+                    {i18n.language == 'ar'?'عميل جديد ؟':'New Customer?'} 
+                        <Link
+                            to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+                            {i18n.language == 'ar'?'إنشاء حساب':'Register'}
+                        </Link>
+                    </Col>
+                </Row>
 
-        </FormContainer>
+            </FormContainer>
+        </>
     )
 }
 

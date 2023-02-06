@@ -92,6 +92,17 @@ function OrderScreen() {
                             </ol>
                         </nav>
                     }
+                    {userInfo && !userInfo.isAdmin &&
+                        <nav aria-label="breadcrumb" className="mb-4">
+                            <ol className="breadcrumb"  style={{backgroundColor:'#ddd',padding:'10px 15px',marginBottom:'0px',borderRadius:'40px'}}>
+                            <li className="breadcrumb-item "><Link to='/'>{i18n.language == 'ar'?'الصفحه الرئيسيه':'Home'}</Link></li>
+                            <li className="breadcrumb-item text-center" aria-current="page">/</li>  
+                            <li className="breadcrumb-item" aria-current="page"><Link to='/profile'>{i18n.language == 'ar'?'بيانات المستخدم':'Profile'}</Link></li>
+                            <li className="breadcrumb-item text-center" aria-current="page">/</li>                                   
+                            <li className="breadcrumb-item ">{i18n.language == 'ar'?'الطلب بالرمز رقم :':'Order ID:'}{order._id}</li>
+                            </ol>
+                        </nav>
+                    }
                     <h1>{i18n.language == 'ar'?'الطلب بالرمز رقم :':'Order ID:'}{order._id}</h1>
                     <Row>
                         <Col md={8}>
