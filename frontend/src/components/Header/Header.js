@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux'
 import './Header.css'
@@ -33,7 +33,11 @@ function Header() {
         navigate(navigate(location.pathname))
       }
   }
-
+  useEffect(()=>{
+    if(keyword === ''){
+      submitHandler()
+    }
+  },[keyword])
   return (
     <header>
       <div className='header-info'>
