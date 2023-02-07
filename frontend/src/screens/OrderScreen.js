@@ -162,7 +162,7 @@ function OrderScreen() {
 
                                 <ListGroup.Item>
                                 <h2>{i18n.language == 'ar'?'المنتجات المطلوبه : ':'Order Items :'}</h2>
-                                    {order.orderItems.length === 0 ? <Message variant='info'>
+                                    {order.orderItems.length === 0 ? <Message variant='warning'>
                                         Order is empty
                             </Message> : (
                                             <ListGroup variant='flush'>

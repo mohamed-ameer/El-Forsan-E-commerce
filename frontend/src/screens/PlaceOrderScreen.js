@@ -105,7 +105,7 @@ function PlaceOrderScreen({ history }) {
 
                         <ListGroup.Item>
                             <h2>{i18n.language == 'ar'?'المنتجات المطلوبه : ':'Order Items :'}</h2>
-                            {cart.cartItems.length === 0 ? <Message variant='info'>
+                            {cart.cartItems.length === 0 ? <Message variant='warning'>
                                 Your cart is empty
                             </Message> : (
                                     <ListGroup >

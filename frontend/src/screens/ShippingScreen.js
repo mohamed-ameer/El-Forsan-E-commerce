@@ -50,7 +50,7 @@ function ShippingScreen() {
             </nav> 
             <FormContainer>
                 <CheckoutSteps step1 step2 />
-                <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <div className="alert alert-dark" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <h1>{i18n.language == 'ar'?'بيانات الشحن':'SHIPPING'}</h1>
                 </div>
                 <Form onSubmit={submitHandler}>

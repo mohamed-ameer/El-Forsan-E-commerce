@@ -45,8 +45,8 @@ function CartScreen() {
         </nav>    
     <Col md={8}>
         {cartItems.length === 0 ? (
-            <Message variant='info'>
-                {i18n.language == 'ar'?<><p>السله فارغه</p> <Link to='/'>إرجع للصفحه الرئيسيه</Link></>:<><p>your cart is empty</p> <Link to='/'>Go Back</Link></>}
+            <Message variant='warning'>
+                {i18n.language == 'ar'?<><p>عربه الشراء فارغه</p> <Link to='/'>إرجع للصفحه الرئيسيه</Link></>:<><p>your cart is empty</p> <Link to='/'>Go Back</Link></>}
                 
             </Message>
         ) : (

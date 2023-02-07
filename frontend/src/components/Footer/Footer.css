@@ -16,6 +16,7 @@ footer .footer-contactus p{
 }
 footer .footer-contactus .social-icons{
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 footer .footer-contactus .social-icons a{
@@ -39,6 +40,11 @@ footer .footer-contactus .social-icons a:nth-child(2):hover{
 }
 footer .footer-contactus .social-icons a:nth-child(3):hover{
     background-color: #045e94;
+    cursor: pointer;
+}
+footer .footer-contactus .social-icons a:nth-child(4):hover{
+    background-color: #fff;
+    color: #045e94 !important;
     cursor: pointer;
 }
 .payment-icons{

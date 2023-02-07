@@ -57,7 +57,7 @@ function RegisterScreen() {
             </nav> 
             <FormContainer>
                 {redirect == 'shipping' && <CheckoutSteps step1 />}
-                <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <div className="alert alert-dark" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <h1>{i18n.language == 'ar'?'إنشاء حساب':'SIGN UP'}</h1>
                 </div>
                 {message && <Message variant='danger'>{message}</Message>}

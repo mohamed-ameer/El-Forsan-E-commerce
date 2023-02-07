@@ -48,7 +48,7 @@ function LoginScreen() {
             </nav> 
             <FormContainer>
                 {redirect == 'shipping' && <CheckoutSteps step1 />}
-                <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
+                <div className="alert alert-dark" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}>
                 <h1>{i18n.language == 'ar'?'تسجيل الدخول':'SIGN IN'}</h1>
                 </div>
                 {error && <Message variant='danger'>{error}</Message>}

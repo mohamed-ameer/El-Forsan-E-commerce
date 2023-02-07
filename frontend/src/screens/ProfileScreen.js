@@ -79,7 +79,7 @@ function ProfileScreen() {
             </ol>
             </nav> 
             <Col md={3}>
-                <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}><h2>{i18n.language == 'ar'?'بيانات المستخدم':'User Profile'}</h2></div>
+                <div className="alert alert-dark" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}><h2>{i18n.language == 'ar'?'بيانات المستخدم':'User Profile'}</h2></div>
 
                 {message && <Message variant='danger'>{message}</Message>}
                 {error && <Message variant='danger'>{error}</Message>}
@@ -142,7 +142,7 @@ function ProfileScreen() {
             </Col>
 
             <Col md={9}>
-            <div className="alert alert-success" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}><h2>{i18n.language == 'ar'?'طلباتي':'My Orders'}</h2></div>
+            <div className="alert alert-dark" style={i18n.language == 'ar'?{direction:'rtl'}:{direction:'ltr'}}><h2>{i18n.language == 'ar'?'طلباتي':'My Orders'}</h2></div>
             {loadingOrders ? (
                     <Loader />
                 ) : errorOrders ? (

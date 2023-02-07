@@ -58,7 +58,7 @@ function ProductScreen() {
                     <div className="alert alert-success d-flex align-items-center" role="alert">
                         <svg className="bi flex-shrink-0 me-2" width="15" height="15" fill="green" role="img" aria-label="Success:"><use href="#check-circle-fill"/></svg>
                         <div>
-                        تم إضافه المنتج للعربه
+                        {i18n.language == 'ar'?`تم اضافه ${product.name_ar} إلي عربه الشراء`:`Success: You have added ${product.name} to your shopping cart!`}
                         </div>
                     </div>
                 </>
@@ -169,11 +169,11 @@ function ProductScreen() {
                 </Row>
 
                 <Row>
-                    <Col md={6}>
+                    <Col md={12}>
                         <div className="alert alert-dark mt-2" role="alert">
                             <h2>{i18n.language == 'ar'?'المراجعات':'Reviews'} ({product.reviews.length})</h2>
                         </div>
-                        {product.reviews.length === 0 && <Message variant='info'>{i18n.language == 'ar'?'لا توجد مراجعه':'No Reviews'}</Message>}
+                        {product.reviews.length === 0 && <Message variant='warning'>{i18n.language == 'ar'?'لا توجد مراجعه':'No Reviews'}</Message>}
 
                         <ListGroup>
                             {product.reviews.map((review) => (
@@ -225,9 +225,9 @@ function ProductScreen() {
                                 ) : (
                                     <>
                                         {i18n.language == 'ar'?
-                                            <Message variant='info'>ارجوك قم <Link to='/login'>بتسجيل الدخول </Link>اولا لكتابه مراجعتك </Message>
+                                            <Message variant='warning'>ارجوك قم <Link to='/login'>بتسجيل الدخول </Link>اولا لكتابه مراجعتك </Message>
                                             :
-                                            <Message variant='info'>Please <Link to='/login'>login</Link> to write a review</Message>
+                                            <Message variant='warning'>Please <Link to='/login'>login</Link> to write a review</Message>
                                         }
                                     </>
                                     )}

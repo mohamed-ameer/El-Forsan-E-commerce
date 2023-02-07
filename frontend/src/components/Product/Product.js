@@ -25,7 +25,7 @@ function Product({ product }) {
                     <div className="alert alert-success d-flex align-items-center" role="alert">
                         <svg className="bi flex-shrink-0 me-2" width="15" height="15" fill="green" role="img" aria-label="Success:"><use href="#check-circle-fill"/></svg>
                         <div>
-                        تم إضافه المنتج للعربه
+                        {i18n.language == 'ar'?`تم اضافه ${product.name_ar} إلي عربه الشراء`:`Success: You have added ${product.name} to your shopping cart!`}
                         </div>
                     </div>
                 </>
